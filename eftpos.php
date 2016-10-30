@@ -45,6 +45,12 @@ function woocommerce_eftpos_commerce_init() {
 				$this->$key = $val;
 			}
 
+			add_action('woocommerce_update_options_payment_gateways', array(
+				$this,
+				'process_admin_options'));
+			add_action('woocommerce_update_options_payment_gateways_' . $this->id, array(
+				$this,
+				'process_admin_options'));
 		}
 
 		/**
@@ -141,6 +147,12 @@ function woocommerce_eftpos_commerce_init() {
 			foreach ($this->settings as $key => $val) {
 				$this->$key = $val;
 			}
+			add_action('woocommerce_update_options_payment_gateways', array(
+				$this,
+				'process_admin_options'));
+			add_action('woocommerce_update_options_payment_gateways_' . $this->id, array(
+				$this,
+				'process_admin_options'));
 
 		}
 
